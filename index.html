@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Todo App</h1>
+                <p>Keep it up!</p>
+                <div class="progress-info" id="progressInfo">2/8 - 2 tasks are done</div>
+            </div>
+            <div class="task-counter" id="taskCounter">
+                <svg class="progress-ring">
+                    <circle class="progress-ring-circle" cx="44" cy="44" r="40"></circle>
+                    <circle class="progress-ring-progress" cx="44" cy="44" r="40" id="progressCircle"></circle>
+                </svg>
+                <div class="counter-fraction" id="counterFraction">0/0</div>
+                <div class="counter-text">TASKS</div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-row">
+                <input type="text" class="task-input" id="taskInput" placeholder="Write your task">
+                <button class="add-btn" id="addBtn">+</button>
+            </div>
+            <textarea class="description-input" id="descriptionInput" placeholder="Add description (optional)"></textarea>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn clear-done-btn" onclick="clearDoneTasks()">Clear All Done</button>
+        </div>
+
+        <div class="sections-container">
+            <div class="section todo">
+                <div class="section-header">
+                    <div class="section-title">
+                        📋 To Do
+                        <span class="section-count" id="todoCount">0</span>
+                    </div>
+                </div>
+                <div class="tasks-list" id="todoTasks"></div>
+            </div>
+
+            <div class="section inprogress">
+                <div class="section-header">
+                    <div class="section-title">
+                        ⚡ In Progress
+                        <span class="section-count" id="inprogressCount">0</span>
+                    </div>
+                </div>
+                <div class="tasks-list" id="inprogressTasks"></div>
+            </div>
+
+            <div class="section done">
+                <div class="section-header">
+                    <div class="section-title">
+                        ✅ Done
+                        <span class="section-count" id="doneCount">0</span>
+                    </div>
+                </div>
+                <div class="tasks-list" id="doneTasks"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h3>Confirm Action</h3>
+            <p id="modalMessage">Are you sure you want to proceed?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn confirm-btn" id="confirmBtn">Yes</button>
+                <button class="modal-btn cancel-btn" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <h3>Edit Task</h3>
+            <input type="text" class="edit-input" id="editInput" placeholder="Edit your task">
+            <textarea class="edit-description" id="editDescriptionInput" placeholder="Edit description (optional)"></textarea>
+            <div class="modal-buttons">
+                <button class="modal-btn confirm-btn" id="saveEditBtn">Save</button>
+                <button class="modal-btn cancel-btn" onclick="closeEditModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
